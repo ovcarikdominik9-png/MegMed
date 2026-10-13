@@ -73,13 +73,13 @@ function hideSplash() {
   const el = document.getElementById('splash');
   if (!el) return;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const wait = reduced ? 0 : Math.max(0, 1150 - performance.now());
+  const wait = reduced ? 0 : Math.max(0, 2600 - performance.now());
   setTimeout(() => {
     el.classList.add('hide');
     // Obsah pod ňou nabehne s animáciou v rovnakom okamihu.
     const v = document.querySelector('.view');
     if (v) { v.classList.remove('view-enter'); void v.offsetWidth; v.classList.add('view-enter'); }
-    setTimeout(() => el.remove(), 500);
+    setTimeout(() => el.remove(), 650);
   }, wait);
 }
 
