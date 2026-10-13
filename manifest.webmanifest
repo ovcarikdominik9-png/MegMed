@@ -1,0 +1,17 @@
+{
+  "name": "MegMed",
+  "short_name": "MegMed",
+  "description": "Riadiaca vrstva štúdia: čo sa dnes učiť, čo je zvládnuté a čo horí.",
+  "lang": "sk",
+  "start_url": "./#/dnes",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#14060f",
+  "theme_color": "#1a0815",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

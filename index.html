@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1a0815">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="MegMed">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="description" content="Riadiaca vrstva štúdia: čo sa dnes učiť, čo je zvládnuté a čo horí.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/app.css">
+  <title>MegMed</title>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#/dnes" aria-label="MegMed – Dnes">
+      <img src="icons/icon.svg" alt="" width="34" height="34">
+      <span>MegMed</span>
+    </a>
+    <nav class="tabs" aria-label="Hlavná navigácia">
+      <a href="#/dnes" data-tab="dnes">Dnes</a>
+      <a href="#/predmety" data-tab="predmety">Predmety</a>
+      <a href="#/deadliny" data-tab="deadliny">Deadliny</a>
+      <a href="#/pokrok" data-tab="pokrok">Pokrok</a>
+    </nav>
+    <a class="gear" href="#/nastavenia" data-tab="nastavenia" aria-label="Nastavenia">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" d="M10.3 3.2h3.4l.5 2.4c.6.2 1.2.6 1.7 1l2.3-.8 1.7 2.9-1.8 1.6a6.6 6.6 0 0 1 0 2l1.8 1.6-1.7 2.9-2.3-.8c-.5.4-1.1.8-1.7 1l-.5 2.4h-3.4l-.5-2.4c-.6-.2-1.2-.6-1.7-1l-2.3.8-1.7-2.9 1.8-1.6a6.6 6.6 0 0 1 0-2L4.1 8.7l1.7-2.9 2.3.8c.5-.4 1.1-.8 1.7-1z"/><circle cx="12" cy="12" r="2.8" fill="none" stroke="currentColor" stroke-width="1.9"/></svg>
+    </a>
+  </header>
+
+  <main id="view" class="main"></main>
+  <div id="sheet-root"></div>
+  <div id="toast-root" aria-live="polite"></div>
+
+  <noscript>MegMed potrebuje zapnutý JavaScript.</noscript>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
