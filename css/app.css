@@ -74,7 +74,7 @@ p { margin: 0; }
 
 .topbar {
   position: sticky; top: 0; z-index: 20;
-  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 12px;
   padding: calc(env(safe-area-inset-top) + 10px) var(--gutter) 10px;
   background: rgba(48, 10, 36, 0.55);
   -webkit-backdrop-filter: saturate(170%) blur(22px);
@@ -106,9 +106,14 @@ p { margin: 0; }
   border-radius: 50%; background: var(--amber); border: 2px solid #1a0815;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .brand span { display: none; }
-  .tabs a { padding: 0 14px; font-size: 15px; }
+  .tabs a { padding: 0 16px; font-size: 15.5px; }
+}
+@media (max-width: 560px) {
+  .topbar { gap: 8px; }
+  .tabs { gap: 2px; padding: 4px; }
+  .tabs a { padding: 0 10px; font-size: 14.5px; }
 }
 
 /* ---------- Hlavný obsah ---------- */
