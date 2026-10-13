@@ -28,7 +28,7 @@ export function renderToday(el) {
 
   el.innerHTML = `
     <section class="hero">
-      <h1 class="hero-title">${greeting()}</h1>
+      <h1 class="hero-title">${greeting()}, <span class="hero-name">${NAME}</span></h1>
       <p class="hero-date">${capitalize(formatLong(today))}</p>
     </section>
     ${alerts(st, today)}
@@ -79,6 +79,7 @@ export function renderToday(el) {
   onLongPress(el, '.plan-item', (row) => topicMenu(row.dataset.id));
 }
 
+const NAME = 'Magdubaby';
 const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
 function welcome() {

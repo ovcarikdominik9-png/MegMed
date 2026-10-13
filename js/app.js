@@ -54,6 +54,7 @@ async function start() {
   await initStore();
   if (!location.hash) history.replaceState(null, '', '#/dnes');
   render();
+  hideSplash();
   subscribe(render);
   window.addEventListener('hashchange', render);
   // Po návrate do appky (napr. ďalší deň ráno) prepočítaj „Dnes“.
@@ -66,6 +67,20 @@ async function start() {
   window.addEventListener('megmed:save-error', () => toast('Uloženie zlyhalo. Exportuj zálohu v Nastaveniach.', { tone: 'bad' }));
   requestPersist();
   registerSW();
+}
+
+function hideSplash() {
+  const el = document.getElementById('splash');
+  if (!el) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wait = reduced ? 0 : Math.max(0, 1150 - performance.now());
+  setTimeout(() => {
+    el.classList.add('hide');
+    // Obsah pod ňou nabehne s animáciou v rovnakom okamihu.
+    const v = document.querySelector('.view');
+    if (v) { v.classList.remove('view-enter'); void v.offsetWidth; v.classList.add('view-enter'); }
+    setTimeout(() => el.remove(), 500);
+  }, wait);
 }
 
 function registerSW() {
@@ -86,5 +101,6 @@ function registerSW() {
 
 start().catch((err) => {
   console.error(err);
+  document.getElementById('splash')?.remove();
   viewRoot.innerHTML = `<div class="card pad"><h2>Appku sa nepodarilo spustiť</h2><p class="muted">${String(err.message || err)}</p></div>`;
 });
