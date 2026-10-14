@@ -1,7 +1,7 @@
 // Service worker: po prvom načítaní uloží celú appku do cache → funguje offline.
 // Pri každom nasadení novej verzie zvýš VERSION, aby sa iPad aktualizoval.
 
-const VERSION = 'megmed-v4';
+const VERSION = 'megmed-v5';
 const ASSETS = [
   './',
   './index.html',

@@ -64,6 +64,10 @@ export function renderProgress(el) {
     </div>
     <h2 class="section-title">Predmety</h2>
     <div class="subject-progress">${subjects.map((s) => subjectProgress(s, st, today)).join('')}</div>`;
+  requestAnimationFrame(() => {
+    const hm = el.querySelector('.heatmap');
+    if (hm) hm.scrollLeft = hm.scrollWidth;
+  });
 }
 
 function subjectProgress(s, st, today) {

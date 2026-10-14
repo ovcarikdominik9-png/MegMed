@@ -110,10 +110,22 @@ p { margin: 0; }
   .brand span { display: none; }
   .tabs a { padding: 0 16px; font-size: 15.5px; }
 }
-@media (max-width: 560px) {
-  .topbar { gap: 8px; }
-  .tabs { gap: 2px; padding: 4px; }
-  .tabs a { padding: 0 10px; font-size: 14.5px; }
+/* Telefón: logo a nastavenia hore, karty cez celú šírku pod nimi */
+@media (max-width: 600px) {
+  .topbar {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "brand gear" "tabs tabs";
+    row-gap: 8px; padding-top: calc(env(safe-area-inset-top) + 6px); padding-bottom: 8px;
+  }
+  .brand { grid-area: brand; min-height: 44px; }
+  .brand span { display: inline; font-size: 18px; }
+  .brand img { width: 30px; height: 30px; }
+  .gear { grid-area: gear; width: 44px; height: 44px; }
+  .tabs { grid-area: tabs; gap: 2px; padding: 4px; }
+  .tabs a { flex: 1; padding: 0 4px; font-size: 14.5px; }
+  .main { padding-top: 20px; }
+  .hero { margin-bottom: 20px; }
+  .hero-date { font-size: 17px; }
 }
 
 /* ---------- Hlavný obsah ---------- */
@@ -378,7 +390,7 @@ p { margin: 0; }
 .subject-summary .muted { margin-top: 8px; }
 .toolbar { display: flex; gap: 10px; margin-bottom: 12px; }
 .search {
-  flex: 1; display: flex; align-items: center; gap: 10px; padding: 0 16px; min-height: var(--tap);
+  flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; padding: 0 16px; min-height: var(--tap);
   border-radius: var(--radius-sm); background: var(--surface); border: 1px solid var(--border);
 }
 .search svg { width: 20px; height: 20px; color: var(--muted); flex: none; }
@@ -427,6 +439,19 @@ p { margin: 0; }
 @media (max-width: 700px) {
   .status-btn .status { min-width: 0; }
 }
+@media (max-width: 600px) {
+  .learn-card, .progress-card, .next-card, .week-card, .heat-card, .sp-card, .subject-card, .settings-card { padding: 18px; }
+  .week-stats { gap: 10px; }
+  .stat b { font-size: 30px; }
+  .dl-row { gap: 12px; padding: 12px; }
+  .dl-row > .chip { display: none; }
+  .topic-row .icon-btn[data-act="menu"] { display: none; }
+  .status-btn .status { padding-left: 9px; padding-right: 11px; font-size: 13.5px; }
+  .sheet { padding: 6px 18px 18px; border-radius: 24px; }
+  .sheet-wrap { padding: 12px; align-items: flex-end; }
+  .form-actions .btn { flex: 1; }
+  .form-actions .spacer { display: none; }
+}
 
 /* ---------- Deadliny ---------- */
 
@@ -444,7 +469,8 @@ p { margin: 0; }
 /* ---------- Pokrok ---------- */
 
 .progress-top { display: grid; grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.6fr); gap: 18px; }
-@media (max-width: 960px) { .progress-top { grid-template-columns: 1fr; } }
+.progress-top > * { min-width: 0; }
+@media (max-width: 960px) { .progress-top { grid-template-columns: minmax(0, 1fr); } }
 .week-card, .heat-card { padding: 22px; }
 .week-stats { display: grid; gap: 16px; }
 @media (max-width: 960px) { .week-stats { grid-template-columns: repeat(3, 1fr); } }
